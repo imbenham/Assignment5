@@ -22,6 +22,29 @@ class FirstViewController: ExerciseViewController {
         
         Your view should be in self.exerciseView, not self.view
         */
+        
+        let topOffset = self.navigationController != nil ? self.navigationController!.navigationBar.frame.maxY : 0
+        let bottomOffset = self.toolbar.frame.size.height
+        
+        let topRect = CGRectMake(0, topOffset, self.exerciseView.frame.size.width, 10.0)
+        let bottomRect = CGRectMake(0, self.exerciseView.frame.size.height - (topRect.size.height + bottomOffset), topRect.size.width, topRect.size.height)
+        
+        let topView = UIView(frame: topRect)
+        let bottomView = UIView(frame: bottomRect)
+        
+        topView.backgroundColor  = UIColor.redColor()
+        bottomView.backgroundColor = UIColor.blackColor()
+        
+        topView.layer.borderWidth = 1.0
+        bottomView.layer.borderWidth = 1.0
+        topView.layer.borderColor = bottomView.backgroundColor!.CGColor
+        bottomView.layer.borderColor = topView.backgroundColor!.CGColor
+        
+        topView.autoresizingMask  = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        bottomView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight 
+        
+        self.exerciseView.addSubview(topView)
+        self.exerciseView.addSubview(bottomView)
 
 	}
     

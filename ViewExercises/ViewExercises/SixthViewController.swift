@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class SixthViewController: ExerciseViewController, UITableViewDelegate, UITableViewDataSource {
     let tableView = UITableView()
     
@@ -21,6 +22,8 @@ class SixthViewController: ExerciseViewController, UITableViewDelegate, UITableV
         self.tableView.frame = self.exerciseView.frame
         self.tableView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController!.navigationBar.frame), 0, 0, 0)
         self.tableView.autoresizingMask = self.exerciseView.autoresizingMask
+        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -32,16 +35,25 @@ class SixthViewController: ExerciseViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell!
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
-        }
-        
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+    
         /* TODO:
         The table view cells on this screen are blank.
         
         Add a label to each cell that is green and centered, and have its text say “Row {X}” (X is the row number of the cell). The tableview should rotate correctly. Use Autolayout.
         */
+        //cell.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        cell.textLabel!.text = "Row \(indexPath.row)"
+        cell.textLabel!.backgroundColor = UIColor.greenColor()
+        cell.textLabel!.textAlignment = .Center
+        //cLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+        /*
+        let cMaker = ConstraintMaker(targetView: cell)
+        cMaker.centerView(cLabel, inView: cell)
+        cMaker.pinWithConstant(20, view: cLabel, toView: cell, forEdge: .Left)
+        cMaker.pinWithConstant(20, view: cLabel, toView: cell, forEdge: .Right)
+*/
         
         return cell
     }

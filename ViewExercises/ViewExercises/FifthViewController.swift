@@ -9,6 +9,10 @@
 import UIKit
 
 class FifthViewController: ExerciseViewController {
+    
+    let expandingButton = UIButton()
+    var buttonWidth: NSLayoutConstraint!
+    var buttonHeight: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,49 @@ class FifthViewController: ExerciseViewController {
         
         Your view should be in self.exerciseView, not self.view
         */
+        
+        self.setUpSubviews()
+        
+        let constraintMaker = ConstraintMaker(targetView: view)
+        constraintMaker.pinAllEdges(fromView: exerciseView, toContainingView: view)
+        
+        buttonWidth = constraintMaker.getWidthConstraintForView(expandingButton, withConstant: 50)
+        buttonHeight = constraintMaker.getHeightConstraintForView(expandingButton, withConstant: 50)
+        self.view.addConstraints([buttonHeight, buttonWidth])
+        constraintMaker.centerView(expandingButton, inView: exerciseView)
+    }
+    
+    func setUpSubviews(){
+        exerciseView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        exerciseView.addSubview(expandingButton)
+        
+        expandingButton.backgroundColor = UIColor.greenColor()
+        expandingButton.layer.borderWidth = 2.0
+        expandingButton.layer.borderColor = UIColor.redColor().CGColor
+        expandingButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        expandingButton.addTarget(self, action: "buttonTapped:", forControlEvents: .TouchUpInside)
+    }
+    
+    func buttonTapped(sender:UIButton) {
+        let animations: () -> () = {
+            self.view.layoutIfNeeded()
+            self.buttonHeight.constant += 20
+            self.buttonWidth.constant += 20
+            self.expandingButton.backgroundColor = UIColor.redColor()
+            self.exerciseView.layoutIfNeeded()
+        }
+        self.view.layoutIfNeeded()
+        UIView.animateWithDuration(1.5, animations: animations){Bool -> () in
+            
+            let animations: () -> () = {
+                self.buttonHeight.constant -= 20
+                self.buttonWidth.constant -= 20
+                self.expandingButton.backgroundColor = UIColor.greenColor()
+                self.exerciseView.layoutIfNeeded()
+            }
+            UIView.animateWithDuration(1.5, animations: animations, completion: nil)
+        }
+
     }
     
     override func shouldAutorotate() -> Bool {

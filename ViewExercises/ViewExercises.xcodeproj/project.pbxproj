@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36B8A4371AE42591009B8314 /* ViewPinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B8A4361AE42591009B8314 /* ViewPinner.swift */; };
 		5D73560919C2075700EFA924 /* RotationPassthroughNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D73560819C2075700EFA924 /* RotationPassthroughNavigationController.swift */; };
 		5DA5AD3D19BF521E00ED61A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5AD3C19BF521E00ED61A7 /* AppDelegate.swift */; };
 		5DA5AD3F19BF521E00ED61A7 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA5AD3E19BF521E00ED61A7 /* ExerciseViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36B8A4361AE42591009B8314 /* ViewPinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPinner.swift; sourceTree = "<group>"; };
 		5D73560819C2075700EFA924 /* RotationPassthroughNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationPassthroughNavigationController.swift; sourceTree = "<group>"; };
 		5DA5AD3719BF521E00ED61A7 /* ViewExercises.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewExercises.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DA5AD3B19BF521E00ED61A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				5DA5AD5F19BF54ED00ED61A7 /* FourthViewController.swift */,
 				5DA5AD6119BF54FA00ED61A7 /* FifthViewController.swift */,
 				5DA5AD6319BF550100ED61A7 /* SixthViewController.swift */,
+				36B8A4361AE42591009B8314 /* ViewPinner.swift */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				5D73560919C2075700EFA924 /* RotationPassthroughNavigationController.swift in Sources */,
 				5DA5AD5C19BF54DF00ED61A7 /* SecondViewController.swift in Sources */,
 				5DA5AD5A19BF54D500ED61A7 /* FirstViewController.swift in Sources */,
+				36B8A4371AE42591009B8314 /* ViewPinner.swift in Sources */,
 				5DA5AD6419BF550100ED61A7 /* SixthViewController.swift in Sources */,
 				5DA5AD5E19BF54E800ED61A7 /* ThirdViewController.swift in Sources */,
 				5DA5AD3F19BF521E00ED61A7 /* ExerciseViewController.swift in Sources */,
